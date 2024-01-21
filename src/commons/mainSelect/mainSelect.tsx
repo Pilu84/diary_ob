@@ -42,6 +42,7 @@ export const MainSelect = function MainSelect<ENUM extends EnumType>(props: Main
 
   return (
     <TextField
+      data-testid="select-textField"
       autoFocus
       required={props.required}
       margin={"dense"}
@@ -52,6 +53,10 @@ export const MainSelect = function MainSelect<ENUM extends EnumType>(props: Main
       onChange={(event: React.ChangeEvent<HTMLInputElement>) => props.handlerChange(event.target.value)}
       defaultValue={props.defaultValue}
       className={classes.selectRoot}
+      inputProps={{
+        id: props.name,
+        role: 'select-input'
+      }}
     >
 
       {props.emptyOptions &&
